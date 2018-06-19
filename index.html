@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>D3 Map & GeoIP</title>
+  
+  
+  <link rel='stylesheet prefetch' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
+
+  <link rel="stylesheet" href="css/style.css">
+  
+  
+</head>
+
+<body>
+
+  <h4>Your location is: <span class="city"></span></h4>
+  <button onclick="globalType()">球狀</button>
+  <button onclick="mapType()">地圖</button>
+  <input id="searchText" type="text">
+  <button id="search" onclick="searchLoc()">查詢</button>
+  <div id="container"></div>
+
+
+
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="https://d3js.org/d3.geo.projection.v0.min.js"></script>
+<script src="https://d3js.org/topojson.v1.min.js"></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+
+  
+
+    <script  src="js/index02.js"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWtRwMfJbKCI29B7hV_1z9xTEoq7y3Fsc&callback=initMap"async defer></script>
+
+
+</body>
+
+</html>

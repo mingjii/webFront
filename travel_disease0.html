@@ -10,23 +10,73 @@ href='http://fonts.googleapis.com/css?family=Condiment'>
 * {
     box-sizing: border-box;
 }
+.slideshow-container {
+	background-size:cover;
+	width:100%;
+	height:100%;
+	position: absolute;
+	
+}
+.mySlides1{
+width:100%;
+	height:100%;
+}
 
+/* Next & previous buttons */
+.prevs {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: ;
+  left: 0;
+  padding: 16px;
+  margin-top: -22px;
+  color: black;
+  font-weight: bold;
+  font-size: 30px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.nexts {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: ;
+  right: 0;
+  padding: 16px;
+  margin-top: -22px;
+  color: black;
+  font-weight: bold;
+  font-size: 30px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* On hover, add a grey background color */
+.prevs:hover, .nexts:hover {
+  background-color: #f1f1f1;
+  color: black;
+}
 
 /* Style the body */
 body {
     font-family: Arial;
     margin: 0;
 }
+img {vertical-align: middle;}
 .imgg{
-		background-repeat: no-repeat;
-		background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKV0SGOSbD3X2pASIcHIYOXnWByu-pg4I36m1hH4toVVY3h08e");
+		
 		background-position: center;
 		position:absolute;
 		background-size:cover;
 		width:100%;
 		height:100%;
-		z-index:-1;
-		Opacity:0.8;
+		z-index:2;
+		Opacity:0.3;
 		
 }
 
@@ -143,21 +193,51 @@ font-family: 'Condiment', cursive;
 
 
 <div class="navbar">
-  <a href="file:///C:/Users/a-888/Desktop/web/indexE.html">首頁</a>
-  <a href="file:///C:/Users/a-888/Desktop/web/asia.html">亞洲</a>
-  <a href="#">歐洲</a>
-  <a href="#">美洲</a>
-  <a href="#">非洲</a>
-  <a href="#">大洋洲</a>
+  <a href="https://mingjii.github.io/webFront/travel_disease0.html">首頁</a>
+  <a href="https://mingjii.github.io/webFront/travel_disease1.html">地圖</a>
   </div>
 
 	
 <div class="header">
 <div class="imgg">
-    
+    <div class="slideshow-container">
+  
+  <div class="mySlides1">
+    <img src="http://blog.asiayo.com/wp-content/uploads/1920x768xtaiwan_newbanner_yvonne-1920x768.jpg.pagespeed.ic.jbBjzhSyMx.jpg" style="width:100%;height:100%;" >
+  </div>
+<div class="mySlides1">
+    <img src="https://jobus.tw/wp-content/uploads/2017/09/%E7%B6%B2%E5%8D%A1-%E6%B3%B0%E5%9C%8B-1400x700.jpg" style="width:100%;height:100%;">
+  </div>
+  <div class="mySlides1">
+    <img src="https://travelertsblog.files.wordpress.com/2014/01/e699afe7a68fe5aeae.jpg?w=970&h=647" style="width:100%;height:100%;">
+  </div>
+  <a class="prevs" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="nexts" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+<script>
+var slideIndex = 1;
+var slideId = "mySlides1"
+showSlides(1);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function showSlides(n) {
+  var i;
+  var x = document.getElementsByClassName(slideId);
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";  
+}
+</script>
 </div>
 	<h1 >世界旅遊疾病</h1>
-	<p>能夠看到世界各地嚴重疾病</p>
+	<p>透過炫砲的地圖以及詳細的疾病資訊</p>
 </div>
 
 

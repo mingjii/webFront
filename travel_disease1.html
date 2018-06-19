@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>疾病管理</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel='stylesheet' type='text/css'
+href='http://fonts.googleapis.com/css?family=Condiment'>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+<style>
+#myInput {
+  background-image: url('if_icon-111-search_314478.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 10%;
+  font-size: 15px;
+  padding: 12px 15px 12px 15px;
+  border: 1px solid #ddd;
+  margin: 5px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 35px;
+  height: 22px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: 	#FF1493;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(13px);
+  -ms-transform: translateX(13px);
+  transform: translateX(13px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 17px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+.prev {
+  cursor: pointer;
+  position: absolute;
+  top:1%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+.con {
+margin-right:1%;
+		float: right;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+	
+    width: 35px;
+    height: 5px;
+    background-color: #FFFF;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+.overlays {
+Opacity:0.75;
+	font-family:"微軟正黑體";
+    height: 100%;
+    width: 0%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 30%;
+    background-color: #F0FFFF;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.overlays-content {
+	
+    position: relative;
+    top: 10%;
+    width: 100%;
+    text-align: left;
+    margin-top: 30px;
+	white-space: pre-line;
+}
+.overlays a {
+	
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlays p {
+    
+    font-size: 36px;
+  
+}
+
+.overlays strong {
+    
+    font-size: 24px;
+  
+}
+
+.overlays a:hover, .overlays a:focus {
+    color: #f1f1f1;
+}
+
+.overlays .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+
+
+.overlay {
+font-family:"微軟正黑體";
+    height: 100%;
+    width: 0%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color:#888888	;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 5%;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.overlay ul {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 22px;
+    color: #ffffff;
+	background-color:#585858;
+    transition: 0.3s;
+	 margin-bottom: 1px;
+	  margin-top: 6px;
+}
+.overlay ul div {
+    font-size:18px;
+    background-color:#444444;
+    text-align: left;
+    padding: 10px;
+}
+
+.overlay ul div p a:hover, .overlay ul div p a:focus{
+  color: #77DDFF;
+}
+/*.overlay .leveling {font-weight:bolder; font-size:28px; color:#666666; padding:2px;}*/
+
+.overlay ul:hover, .overlay ul:focus {
+    color: #f1f1f1;
+}
+.overlay a {
+ margin-bottom: 25px;
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #ffffff;
+	background-color:#222222 ;
+    display: block;
+    transition: 0.3s;
+}
+#eventCountry{font-size:40px;
+margin-bottom: 3px;
+}
+
+.overlay .overlay-content>a:hover, .overlay .prev:hover, .overlay .overlay-content>a:focus {
+    background-color: #CC0000;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+
+/* Style the body */
+body {
+    font-family: Arial;
+    margin: 0;
+}
+
+
+/* Header/logo Title */
+.header {
+		float:right;
+		text-align: center;
+		width:100%;
+		height:100%;
+		
+		position:absolute;
+	
+}
+
+/* Increase the font size of the heading */
+.header h1 {
+font-family: 'Condiment', cursive;
+    font-size: 80px;
+	color:navy;
+	
+}
+.header p {
+font-family: 'Condiment', cursive;
+    font-size: 40px;
+	color:	#DC143C	;
+	
+}
+
+/* Style the top navigation bar */
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+/* Right-aligned link */
+.navbar a.right {
+    float: right;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Column container */
+.row {  
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+    -ms-flex: 30%; /* IE10 */
+    flex: 30%;
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+/* Main column */
+.main {   
+    -ms-flex: 70%; /* IE10 */
+    flex: 70%;
+    background-color: white;
+    padding: 20px;
+}
+
+/* Fake image, just for this example */
+.fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Footer */
+.footer {
+    padding: 20px;
+    text-align: center;
+    background: #ddd;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+    .row {   
+        flex-direction: column;
+    }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+    .navbar a {
+        float: none;
+        width: 100%;
+    }
+}
+</style>
+</head>
+<body >
+
+<div id="myNav" class="overlay">
+<a  class="prev" onclick="closeNav()">&#10095;</a>
+  <div class="overlay-content", id="events">
+    <p id="eventCountry"></p>
+	<a onclick="plusSlides()">疾病詳情</a>
+  </div>
+</div>
+
+
+<div id="myNavs" class="overlays">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeSlides()">&times;</a>
+  <div class="overlays-content">
+  
+  </div>
+</div>
+
+
+<script>
+function openNav() {
+
+    document.getElementById("myNav").style.width = "30%";
+}
+
+function closeNav() {
+    document.getElementById("myNav").style.width = "0%";
+	
+}
+</script>
+
+<script>
+
+
+function closeSlides(){
+	document.getElementById("myNavs").style.width = "0%";
+	
+}
+</script>
+
+<div class="navbar" >
+  <a href="file:///C:/Users/a-888/Desktop/web/indexE.html">首頁</a>
+  <a class="continents" value="亞洲">亞洲</a>
+  <a class="continents" value="歐洲">歐洲</a>
+  <a class="continents" value="美洲">美洲</a>
+  <a class="continents" value="非洲">非洲</a>
+  <a class="continents" value="大洋洲">大洋洲</a>
+  
+  </div>
+  
+  <h4>Your location is: <span class="city"></span></h4>
+  
+	<label class="switch">
+	   <input type="checkbox">
+	   <span class="slider round" onclick="changeMode()"></span>
+	</label>
+
+	<input id="searchText" type="text">
+  <button id="search" onclick="searchLoc()">查詢</button>
+  <input type="text" id="myInput" placeholder="Search for country.." title="Type in a name">
+  <div id="container" z-index="0">
+  <a class="next" onclick="openNav()">&#10094;</a>
+  </div>
+  
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="https://d3js.org/d3.geo.projection.v0.min.js"></script>
+<script src="https://d3js.org/topojson.v1.min.js"></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+<script src="js/index02.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWtRwMfJbKCI29B7hV_1z9xTEoq7y3Fsc&callback=initMap"async defer></script>
+  
+
+
+</body>
+</html>
