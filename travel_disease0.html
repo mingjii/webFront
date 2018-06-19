@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>疾病管理</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel='stylesheet' type='text/css'
+href='http://fonts.googleapis.com/css?family=Condiment'>
+<style>
+* {
+    box-sizing: border-box;
+}
+
+
+/* Style the body */
+body {
+    font-family: Arial;
+    margin: 0;
+}
+.imgg{
+		background-repeat: no-repeat;
+		background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKV0SGOSbD3X2pASIcHIYOXnWByu-pg4I36m1hH4toVVY3h08e");
+		background-position: center;
+		position:absolute;
+		background-size:cover;
+		width:100%;
+		height:100%;
+		z-index:-1;
+		Opacity:0.8;
+		
+}
+
+/* Header/logo Title */
+.header {
+		text-align: center;
+		width:100%;
+		height:100%;
+		Opacity:1;
+		position:absolute;
+		z-index= 1;
+}
+
+/* Increase the font size of the heading */
+.header h1 {
+font-family: 'Condiment', cursive;
+    font-size: 80px;
+	color:navy;
+	
+}
+.header p {
+font-family: 'Condiment', cursive;
+    font-size: 40px;
+	color:	#DC143C	;
+	
+}
+
+/* Style the top navigation bar */
+.navbar {
+	z-index= 5;
+    overflow: hidden;
+    background-color: #333;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+/* Right-aligned link */
+.navbar a.right {
+    float: right;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Column container */
+.row {  
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+    -ms-flex: 30%; /* IE10 */
+    flex: 30%;
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+/* Main column */
+.main {   
+    -ms-flex: 70%; /* IE10 */
+    flex: 70%;
+    background-color: white;
+    padding: 20px;
+}
+
+/* Fake image, just for this example */
+.fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Footer */
+.footer {
+    padding: 20px;
+    text-align: center;
+    background: #ddd;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+    .row {   
+        flex-direction: column;
+    }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+    .navbar a {
+        float: none;
+        width: 100%;
+    }
+}
+</style>
+</head>
+<body>
+
+
+
+
+<div class="navbar">
+  <a href="file:///C:/Users/a-888/Desktop/web/indexE.html">首頁</a>
+  <a href="file:///C:/Users/a-888/Desktop/web/asia.html">亞洲</a>
+  <a href="#">歐洲</a>
+  <a href="#">美洲</a>
+  <a href="#">非洲</a>
+  <a href="#">大洋洲</a>
+  </div>
+
+	
+<div class="header">
+<div class="imgg">
+    
+</div>
+	<h1 >世界旅遊疾病</h1>
+	<p>能夠看到世界各地嚴重疾病</p>
+</div>
+
+
+
+</body>
+</html>
