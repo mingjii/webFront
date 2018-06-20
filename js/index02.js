@@ -7,6 +7,7 @@ var zoom = d3.behavior.zoom()
 var width = document.getElementById('container').offsetWidth;
 var height = width /2;
 var topo, projection, path, svg, g, locList, eventlist, statusType, diseaseList, disease;
+var selectEvent = -1;
 var levelColor = ["#73bf00", "#e1e100", "#f75000", "#ce0000"];
 var levelText = ["普通", "第一級:注意(Watch), 提醒遵守當地的一般預防措施 ", "第二級:警示(Alert), 對當地採取加強防護", "第三級:警告(Warning), 避免至當地所有非必要旅遊"];
 var graticule = d3.geo.graticule();
@@ -76,6 +77,7 @@ $(document).ready(function(){
       //console.log(eventlist[tag]["effective"]);
       var block = d3.select("#events").append("ul")
 	    .text(eventlist[tag]["headline"]+"("+startTime.getFullYear()+"-"+(startTime.getMonth()+1)+"-"+startTime.getDate()+")")
+      .attr("id", "event" + tag)
       .attr("countryID", ID)
       .attr("disease", eventlist[tag]["alert_disease"])
       .append("div")
@@ -100,10 +102,19 @@ $(document).ready(function(){
     }
 
     $("#events ul").on("click", function(){
-      $(this).children("div").toggle();
-      $("#events ul div").hide();
-      $(this).children("div").toggle();
-	  disease = $(this).attr("disease");
+      var ID = $(this).attr("id");
+      if(selectEvent == ID){
+        disease = null;
+        $(this).attr("class", null).hide();
+        selectEvent = -1;
+      }
+      else{
+        $("#events ul .selectEvent").hide();
+        $(this).attr("class", "selectEvent").show();
+        selectEvent = ID;
+        disease = $(this).attr("disease");
+      }
+      
     });
     $(".navbar .continents").click(function(){
       searchLoc($(this).attr("value"));
