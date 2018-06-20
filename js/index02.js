@@ -6,8 +6,8 @@ var zoom = d3.behavior.zoom()
 
 var width = document.getElementById('container').offsetWidth;
 var height = width /2;
-var topo, projection, path, svg, g, locList, eventlist, statusType, diseaseList, disease;
-var selectEvent = -1;
+var topo, projection, path, svg, g, locList, eventlist, statusType, diseaseList;
+var selectEvent = -1, disease = null;
 var levelColor = ["#73bf00", "#e1e100", "#f75000", "#ce0000"];
 var levelText = ["普通", "第一級:注意(Watch), 提醒遵守當地的一般預防措施 ", "第二級:警示(Alert), 對當地採取加強防護", "第三級:警告(Warning), 避免至當地所有非必要旅遊"];
 var graticule = d3.geo.graticule();
@@ -103,14 +103,17 @@ $(document).ready(function(){
 
     $("#events ul").on("click", function(){
       var ID = $(this).attr("id");
-      if(selectEvent == ID){
+      console.log(ID, selectEvent);
+      if(selectEvent == ID ){
         disease = null;
-        $(this).attr("class", null).hide();
+        $(this).children("div").hide();
+        $(this).attr("class", null)
         selectEvent = -1;
       }
       else{
-        $("#events ul .selectEvent").hide();
-        $(this).attr("class", "selectEvent").show();
+        $("#events .selectEvent").children("div").hide();
+        $(this).children("div").show();
+        $(this).attr("class", "selectEvent");
         selectEvent = ID;
         disease = $(this).attr("disease");
       }
