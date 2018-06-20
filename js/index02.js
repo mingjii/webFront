@@ -107,6 +107,7 @@ $(document).ready(function(){
     });
     $(".navbar .continents").click(function(){
       searchLoc($(this).attr("value"));
+      console.log($(this).attr("value"));
     });
     topo = countries;
     draw(topo);
@@ -377,6 +378,7 @@ function searchLoc(address=null){
       //drawPoint(x, y);
 
       var selectID = findSelected(loc, s);
+      if(selectID==12)selectID=15;
 
       if(statusType == 0){
         g.transition().duration(1000).attr("transform", "translate(" + [0, 0] + ")scale(" + 1 + ")")
